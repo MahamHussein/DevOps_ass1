@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .topnav {
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .topnav a.active {
+        background-color: #04aa6d;
+        color: white;
+      }
+
+      #projects-section,
+      #education-section {
+        display: none;
+      }
+
+      .filter-input {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topnav">
+      <a class="active" href="#" onclick="loadContent('home')">Home</a>
+      <a href="#" onclick="loadContent('projects')">Projects</a>
+      <a href="#" onclick="loadContent('education')">Education</a>
+    </div>
+
+    <div id="home-section" style="padding-left: 16px">
+      <h2>Introduction</h2>
+      <p>
+        Hi, I'm Maham Hussain! Welcome to my personal website. <br />
+        I am a final year student at FAST-NUCES. <br />
+        I have done my O-level and A-levels from Beaconhouse School system.
+        <br />I am passionate about software development. <br /><br />
+        Here, you'll find information about my background, projects I've worked
+        on, and my educational journey. <br />
+        Feel free to explore and get to know more about me!
+      </p>
+    </div>
+
+    <div id="projects-section" style="padding-left: 16px">
+      <h2>Projects</h2>
+      <div class="filter-input">
+        <label for="techFilter">Filter by Technology:</label>
+        <input type="text" id="techFilter" oninput="filterProjects()" />
+      </div>
+      <div id="projects-list">
+        <ul>
+          <li>ShopHeaven</li>
+          <li>Gymnasium</li>
+          <li>MasterBid</li>
+          <li>ShowTime Cinema</li>
+          <li>Sorting Algorithms Visualizer</li>
+          <li>Matching CV-JD</li>
+          <li>Human Action Recognition In Videos</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="education-section" style="padding-left: 16px">
+      <h2>Courses</h2>
+      <ul>
+        <li>English</li>
+        <li>Math</li>
+        <li>History</li>
+        <li>Geography</li>
+        <li>Urdu</li>
+        <li>Islamiat</li>
+        <li>Physics</li>
+        <li>Chemistry</li>
+        <li>Programming Fundamentals</li>
+        <li>Object Oriented Programming</li>
+        <li>Sociology</li>
+        <li>Psychology</li>
+        <li>Digital Logic Design</li>
+        <li>Coal</li>
+        <li>Data Structures</li>
+        <li>Operating System</li>
+        <li>Information Retrieval</li>
+        <li>Database</li>
+        <li>Artificial Intelligence</li>
+        <li>Computer Network</li>
+        <li>Discrete</li>
+        <li>Linear Algebra</li>
+        <li>Calculus</li>
+        <li>Graph Theory</li>
+        <li>Probability</li>
+        <li>Toa</li>
+        <li>TBW</li>
+      </ul>
+    </div>
+
+    <script>
+      function loadContent(page) {
+        document.getElementById("home-section").style.display = "none";
+        document.getElementById("projects-section").style.display = "none";
+        document.getElementById("education-section").style.display = "none";
+
+        switch (page) {
+          case "home":
+            document.getElementById("home-section").style.display = "block";
+            break;
+          case "projects":
+            document.getElementById("projects-section").style.display = "block";
+            break;
+          case "education":
+            document.getElementById("education-section").style.display =
+              "block";
+            break;
+        }
+      }
+
+      var projectsData = [
+        { name: "ShopHeaven", technology: "Node.js, React.js, Express.js" },
+        { name: "Gymnasium", technology: "Bootstrap" },
+        { name: "MasterBid", technology: "C" },
+        { name: "ShowTime Cinema", technology: "C++" },
+        { name: "Sorting Algorithms Visualizer", technology: "Python" },
+        { name: "JD-CV match", technology: "Python" },
+        { name: "Human Action Recognition In Videos", technology: "Python" },
+      ];
+
+      function filterProjects() {
+        var filterValue = document
+          .getElementById("techFilter")
+          .value.toLowerCase();
+        var projectsList = document.getElementById("projects-list");
+        projectsList.innerHTML = "";
+
+        projectsData.forEach(function (project) {
+          if (project.technology.toLowerCase().includes(filterValue)) {
+            var projectItem = document.createElement("p");
+            projectItem.textContent =
+              project.name + " (" + project.technology + ")";
+            projectsList.appendChild(projectItem);
+          }
+        });
+      }
+
+      loadContent("home");
+    </script>
+  </body>
+</html>
