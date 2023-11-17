@@ -47,6 +47,7 @@
       <a class="active" href="#" onclick="loadContent('home')">Home</a>
       <a href="#" onclick="loadContent('projects')">Projects</a>
       <a href="#" onclick="loadContent('education')">Education</a>
+      <a href="#" onclick="loadContent('certifications')">Certifications</a>
     </div>
 
     <div id="home-section" style="padding-left: 16px">
@@ -114,11 +115,22 @@
       </ul>
     </div>
 
+    <div id="certifications-section" style="padding-left: 16px; display: none">
+      <h2>Certifications</h2>
+      <ul>
+        <li>Scrum Foundation Professional Certification</li>
+        <li>Front End Development Libraries</li>
+        <li>Javascript Algorithms And Data Structures</li>
+        <li>Astera Data Integration Bootcamp</li>
+      </ul>
+    </div>
+
     <script>
       function loadContent(page) {
         document.getElementById("home-section").style.display = "none";
         document.getElementById("projects-section").style.display = "none";
         document.getElementById("education-section").style.display = "none";
+        document.getElementById("certifications-section").style.display = "none";
 
         switch (page) {
           case "home":
@@ -129,6 +141,10 @@
             break;
           case "education":
             document.getElementById("education-section").style.display =
+              "block";
+            break;
+          case "certifications":
+            document.getElementById("certifications-section").style.display =
               "block";
             break;
         }
